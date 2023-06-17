@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Map set</title>
+</head>
+<body>
+    <h1>Map and sets Handson</h1>
+    <p class="question ">Q1- "Problem: <br>
+        You are given a string (STR) of length N, consisting of only the lower case English alphabet.
+        Your task is to remove all the duplicate occurrences of characters in the string.
+        <br>
+        Input:
+        abcadeecfb
+        <br>
+        Output:
+        abcdef"</p>
+        <pre>ANS:  function removeDuplicates(str) {
+            const charSet = new Set(str);
+            return Array.from(charSet).join('');
+          }
+          
+          // Example usage:
+          const input = 'abcadeecfb';
+          const output = removeDuplicates(input);
+          console.log(output); // Output: "abcdef"
+        </pre>
+        EXPLANATION : <br>
+           <p>
+           
+           The 'Set' object in JavaScript to automatically remove duplicate characters from the string. We create a new Set called charSet by passing the input string str as an iterable. The Set automatically eliminates duplicate values, so we have a unique set of characters from the input string.
+<br>
+        To obtain the final result as a string, we convert the Set back to an array using Array.from and then join the array elements using an empty string as the separator. This gives us the desired string with duplicate characters removed.
+<br>
+        When we apply this approach to the input string "abcadeecfb", the output will be "abcdef", which represents the unique characters in the order of their first occurrence in the input string.
+    </p>
+        <br>
+        <br>
+        <hr>
+       <br> <br>
+        <p  class="question ">Q2- "Problem: <br>
+            You are given a string (STR) of length N, you have to print the count of all alphabet.(using maps)
+            <br>
+            Input:
+            abcadeecfb
+            <br>
+            Output:
+            a=2
+            b=2
+            c=2
+            d=1
+            e=2
+            f=1"</p>
+
+            ANS:  <pre>function countAlphabets(str) {
+                const charMap = new Map();
+              
+                for (let char of str) {
+                  if (charMap.has(char)) {
+                    charMap.set(char, charMap.get(char) + 1);
+                  } else {
+                    charMap.set(char, 1);
+                  }
+                }
+              
+                for (let [char, count] of charMap) {
+                  console.log(`${char}=${count}`);
+                }
+              }
+              
+              // Example usage:
+              const input = 'abcadeecfb';
+              countAlphabets(input);
+              </pre>
+              EXPLANATION: 
+              <p> We iterate over each character in the input string str. We use a Map called charMap to keep track of the occurrences of each alphabet. If a character is already present in the charMap, we increment its count by 1. Otherwise, we set its count to 1.
+
+                Finally, we loop over the entries in the charMap using destructuring and log the alphabet along with its count using the console.log() function.
+                
+                When we apply this solution to the input string "abcadeecfb", the output will be:</p>
+               OUTPUT: <pre>
+                    a=2
+                    b=2
+                    c=2
+                    d=1
+                    e=2
+                    f=1
+                     </pre>
+
+
+<script src="map.js"></script>
+</body>
+</html>
